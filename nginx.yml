@@ -1,0 +1,16 @@
+---
+ - name: Installation and running of nginx service
+   hosts: web
+   become: true
+   tasks: 
+    - name: Installation of nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+    - name: Running the service
+      service:
+        name: nginx
+        state: present
+        enabled: true
+...
